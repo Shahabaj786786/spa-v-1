@@ -1,0 +1,167 @@
+.sca-container {
+  padding: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #eef7f1 0%, #eef2f5 40%, #eef2f5 100%);
+  min-height: calc(100vh - 60px);
+  --pos-green: #0f766e;
+  --pos-green-dark: #0b5f59;
+  --pos-border: rgba(15, 23, 42, 0.12);
+  --pos-text: #111827;
+  --pos-muted: #64748b;
+}
+
+/* Use AddUser-like primary button tokens within SCA */
+.sca-container .btn-primary {
+  background: var(--pos-green) !important;
+  border-color: var(--pos-green) !important;
+  color: white !important;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.20);
+}
+.sca-container .btn-primary:hover {
+  background: var(--pos-green-dark) !important;
+  border-color: var(--pos-green-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15,118,110,0.26);
+} 
+.sca-container .page-header { display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; }
+.sca-container .card { border-radius: 10px; }
+.table-wrap { overflow-x: auto; }
+Compiled with problems:
+×
+ERROR
+[eslint] 
+src\components\RoleList.jsx
+  Line 85:5:    'setCollapsedGroups' is not defined  no-undef
+  Line 232:9:   'showAddForm' is not defined         no-undef
+  Line 234:12:  'RoleForm' is not defined            react/jsx-no-undef
+  Line 236:31:  'setShowAddForm' is not defined      no-undef
+  Line 247:15:  'setShowAddForm' is not defined      no-undef
+
+Search for the keywords to learn more about each error..table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 12px; border-bottom: 1px solid #eee; }
+.table thead th { background: #f8fafc; text-align: left; font-weight: 600; }
+.btn-sm { padding: 6px 10px; font-size: 0.85rem; }
+.ms-2 { margin-left: 0.5rem; }
+
+/* Sales Commission form specific overrides to ensure it matches RoleForm look */
+.sca-form-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(15,23,42,0.06) !important;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 6px 16px rgba(16,24,40,0.04);
+  padding: 0 !important;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+.sca-form-card .card-header { padding: 6px 10px !important; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.sca-form-card .card-body { padding: 12px !important; } 
+.sca-form-card .form-label { margin-bottom: 4px; font-size: 0.85rem; color: #374151; display: block; }
+.sca-form-card .form-control, .sca-form-card .form-select { height: 40px; padding: 0.45rem 0.65rem; box-sizing: border-box; width: 100%; max-width: 100%; border: 1px solid var(--pos-border); border-radius: 10px; background: #fff; }
+.sca-form-card .form-control:focus, .sca-form-card .form-select:focus { outline: none; box-shadow: 0 0 0 3px rgba(15,118,110,0.08) !important; border-color: var(--pos-green); }
+.sca-form-card textarea.form-control { min-height: 48px; max-height: 96px; resize: vertical; }
+.sca-form-card .form-footer { padding: 8px 10px !important; display:flex; justify-content:flex-end; gap:8px; background:#fbfdff; border-top:1px solid rgba(0,0,0,0.03); }
+
+/* small helper adjustments */
+.sca-form-card .mt-3 { margin-top: 6px !important; }
+.sca-form-card .close-btn { background: none; border: none; color: #6b7280; }
+
+/* Form layout: use a compact flex grid so inputs align nicely */
+.sca-form-card .form-content { max-width: 680px; margin: 6px 10px; }
+.sca-form-card .row.g-0 { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; margin-left: 0; margin-right: 0; }
+.sca-form-card .col-md-2, .sca-form-card .col-md-5, .sca-form-card .col-md-6, .sca-form-card .col-12 { padding-left: 6px; padding-right: 6px; margin-bottom: 4px; }
+.sca-form-card .col-md-2 { flex: 0 0 90px; max-width: 90px; }
+.sca-form-card .col-md-5 { flex: 0 0 200px; max-width: 200px; }
+.sca-form-card .col-md-6 { flex: 0 0 220px; max-width: 220px; }
+.sca-form-card .col-12 { flex: 0 0 100%; max-width: 100%; }
+.sca-form-card .form-label { margin-bottom: 6px; line-height: 1.1; }
+
+@media (max-width: 768px) {
+  .sca-form-card .form-content { margin: 6px; padding: 0 6px; }
+  .sca-form-card .col-md-2, .sca-form-card .col-md-5, .sca-form-card .col-md-6 { 
+    width: 100% !important; flex: 0 0 100%; max-width: 100%; padding-left: 0; padding-right: 0; 
+  }
+}
+
+/* Modal overlay used for Sales Commission form */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+}
+.modal-center {
+  width: 100%;
+  max-width: 760px;
+}
+.modal-center .sca-form-card { margin: 0; }
+.modal-center .card-body { max-height: calc(100vh - 240px); overflow-y: auto; }
+
+/* Export/Print button style */
+.export-btn {
+  font-weight: 700; /* bold */
+  color: #0f1724;
+  background: #ffffff;
+  border-color: #e5e7eb;
+  transition: all 0.14s cubic-bezier(.2,.9,.2,1);
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+}
+.export-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.export-btn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* CSV - bold orange */
+.export-btn.export-csv {
+  background: linear-gradient(180deg,#ff8a3d,#ff6a00);
+  color: white;
+  border-color: #ff7a1a;
+  box-shadow: 0 6px 18px rgba(255,106,0,0.18);
+}
+.export-btn.export-csv:hover:not(:disabled) {
+  background: linear-gradient(180deg,#ff9a5a,#ff7a1a);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255,106,0,0.22);
+}
+.export-btn.export-csv:active:not(:disabled) { transform: translateY(0); }
+
+/* Excel - strong green */
+.export-btn.export-excel {
+  background: linear-gradient(180deg,#34d399,#10b981);
+  color: white;
+  border-color: #10b981;
+  box-shadow: 0 6px 18px rgba(16,185,129,0.14);
+}
+.export-btn.export-excel:hover:not(:disabled) {
+  background: linear-gradient(180deg,#52e1ad,#10b981);
+  box-shadow: 0 10px 30px rgba(16,185,129,0.18);
+}
+.export-btn.export-excel:active:not(:disabled) { transform: translateY(0); }
+
+/* Print - strong indigo */
+.export-btn.export-print {
+  background: linear-gradient(180deg,#7c83ff,#5b21b6);
+  color: white;
+  border-color: #5b21b6;
+  box-shadow: 0 6px 18px rgba(91,33,182,0.12);
+}
+.export-btn.export-print:hover:not(:disabled) {
+  background: linear-gradient(180deg,#8f94ff,#6d28d9);
+  box-shadow: 0 10px 30px rgba(91,33,182,0.18);
+}
+.export-btn.export-print:active:not(:disabled) { transform: translateY(0); }
+
+/* Focus states for accessibility */
+.export-btn:focus-visible {
+  outline: 3px solid rgba(79,70,229,0.18);
+  outline-offset: 2px;
+}

@@ -1,0 +1,373 @@
+/* ET POS Home Styles */
+.etpos-home {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--etpos-border);
+}
+
+.welcome-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--etpos-text);
+  margin: 0;
+}
+
+.location-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.location-selector label {
+  font-size: 0.875rem;
+  color: var(--etpos-text-muted);
+  font-weight: 500;
+}
+
+.location-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.375rem;
+  background: white;
+  font-size: 0.875rem;
+  min-width: 200px;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--etpos-card);
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--etpos-text);
+  margin: 0 0 0.25rem 0;
+}
+
+.metric-title {
+  font-size: 0.875rem;
+  color: var(--etpos-text-muted);
+  margin: 0;
+}
+
+.metric-blue { border-left: 4px solid #3b82f6; }
+.metric-green { border-left: 4px solid #10b981; }
+.metric-orange { border-left: 4px solid #f59e0b; }
+.metric-red { border-left: 4px solid #ef4444; }
+.metric-purple { border-left: 4px solid #8b5cf6; }
+.metric-yellow { border-left: 4px solid #eab308; }
+.metric-pink { border-left: 4px solid #ec4899; }
+.metric-gray { border-left: 4px solid #6b7280; }
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background: var(--etpos-card);
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--etpos-text);
+  margin: 0 0 1rem 0;
+}
+
+.chart-placeholder {
+  height: 200px;
+  background: var(--etpos-bg);
+  border: 1px dashed var(--etpos-border);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--etpos-text-muted);
+  font-size: 1.125rem;
+}
+
+/* Tables Section */
+.tables-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+}
+
+.table-card {
+  background: var(--etpos-card);
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--etpos-bg);
+  border-bottom: 1px solid var(--etpos-border);
+}
+
+.table-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--etpos-text);
+  margin: 0;
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--etpos-text-muted);
+}
+
+.entries-selector {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.location-filter {
+  font-size: 0.875rem;
+  color: var(--etpos-text);
+  font-weight: 500;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th {
+  background: var(--etpos-bg);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--etpos-text);
+  border-bottom: 1px solid var(--etpos-border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--etpos-border);
+  vertical-align: middle;
+}
+
+.data-table tr:hover {
+  background: var(--etpos-bg);
+}
+
+.no-data {
+  text-align: center;
+  color: var(--etpos-text-muted);
+  font-style: italic;
+}
+
+.product-name {
+  font-weight: 500;
+  color: var(--etpos-text);
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.stock-value {
+  font-weight: 600;
+}
+
+.stock-value.negative {
+  color: var(--etpos-danger);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--etpos-warning);
+}
+
+.status-badge.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--etpos-success);
+}
+
+.action-btn {
+  padding: 0.25rem 0.5rem;
+  background: var(--etpos-primary);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--etpos-primary-hover);
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--etpos-bg);
+  border-top: 1px solid var(--etpos-border);
+  font-size: 0.875rem;
+  color: var(--etpos-text-muted);
+}
+
+.pagination {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pagination button {
+  padding: 0.25rem 0.5rem;
+  background: white;
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--etpos-primary);
+  color: white;
+  border-color: var(--etpos-primary);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .metric-card {
+    padding: 1rem;
+  }
+  
+  .metric-value {
+    font-size: 1.25rem;
+  }
+  
+  .tables-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .data-table {
+    font-size: 0.75rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem;
+  }
+  
+  .table-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+}

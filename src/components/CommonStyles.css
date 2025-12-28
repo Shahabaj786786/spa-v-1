@@ -1,0 +1,137 @@
+/* Common Styles for ET POS Modules */
+.module-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.module-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--etpos-text);
+  margin: 0;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--etpos-primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background: var(--etpos-primary-hover);
+  transform: translateY(-1px);
+}
+
+.module-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--etpos-border);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--etpos-text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--etpos-text);
+  background: var(--etpos-bg);
+}
+
+.tab-btn.active {
+  color: var(--etpos-primary);
+  border-bottom-color: var(--etpos-primary);
+  background: var(--etpos-bg);
+}
+
+.module-content {
+  background: var(--etpos-card);
+  border: 1px solid var(--etpos-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.placeholder-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--etpos-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.placeholder-content p {
+  font-size: 1rem;
+  color: var(--etpos-text-muted);
+  margin: 0 0 2rem 0;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--etpos-bg);
+  border: 1px solid var(--etpos-border);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--etpos-text);
+}
+
+.feature-item:hover {
+  background: var(--etpos-primary);
+  color: white;
+  border-color: var(--etpos-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .module-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .module-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}

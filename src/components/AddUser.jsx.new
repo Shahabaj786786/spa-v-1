@@ -1,0 +1,346 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, Save, X } from 'lucide-react';
+import './AddUser.css';
+
+const AddUser = () => {
+  const navigate = useNavigate();
+  
+  const [formData, setFormData] = useState({
+    // Personal Information
+    prefix: 'mr',
+    first_name: '',
+    last_name: '',
+    email: '',
+    is_active: true,
+    enable_service_staff_pin: false,
+
+    // Roles and Permissions
+    allow_login: true,
+    username: '',
+    password: '',
+    confirm_password: '',
+    role: 'admin',
+
+    // Sales
+    cmmsn_percent: '',
+    max_discount_percent: '',
+    selected_contacts: false,
+
+    // More Informations
+    date_of_birth: '',
+    gender: '',
+    marital_status: '',
+    blood_group: '',
+    mobile: '',
+    alternate_contact: '',
+    family_contact: '',
+    facebook: '',
+    twitter: '',
+    social_media_1: '',
+    social_media_2: '',
+    custom_field_1: '',
+    custom_field_2: '',
+    custom_field_3: '',
+    custom_field_4: '',
+    guardian_name: '',
+    id_proof_name: '',
+    id_proof_number: '',
+    permanent_address: '',
+    current_address: '',
+
+    // Bank Details
+    account_holder_name: '',
+    account_number: '',
+    bank_name: '',
+    bank_identifier_code: '',
+    branch: '',
+    tax_payer_id: '',
+
+    // HRM Details
+    department: '',
+    designation: '',
+
+    // Payroll
+    primary_work_location: '',
+    basic_salary: '',
+    pay_period: 'per_month',
+    pay_components: '',
+
+    // Misc
+    language: 'en'
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your API call here
+  };
+
+  return (
+    <div className="add-user-container">
+      <div className="add-user-header sticky-top d-flex justify-content-between align-items-center">
+        <button
+          className="btn btn-light border"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft size={16} className="me-1" /> Back
+        </button>
+        <h4 className="add-user-title mb-0 text-primary fw-bold">Add New User</h4>
+        <div className="d-flex gap-2">
+          <button
+            type="button"
+            className="btn btn-light border"
+            onClick={() => navigate(-1)}
+          >
+            <X size={16} className="me-1" /> Cancel
+          </button>
+          <button type="submit" form="userForm" className="btn btn-primary">
+            <Save size={16} className="me-1" /> Save User
+          </button>
+        </div>
+      </div>
+
+      <form id="userForm" onSubmit={handleSubmit} className="add-user-form">
+        <div className="card shadow-sm">
+          <div className="card-header bg-light py-2">
+            <h5 className="mb-0">
+              <i className="bi bi-person me-2"></i>User Information
+            </h5>
+          </div>
+          <div className="card-body">
+            <div className="row g-3">
+              <div className="col-md-2">
+                <label className="form-label small fw-medium text-muted">Prefix</label>
+                <select
+                  className="form-select form-select-sm"
+                  name="prefix"
+                  value={formData.prefix}
+                  onChange={handleChange}
+                >
+                  <option value="mr">Mr</option>
+                  <option value="mrs">Mrs</option>
+                  <option value="miss">Miss</option>
+                </select>
+              </div>
+              <div className="col-md-5">
+                <label className="form-label small fw-medium text-muted">First Name *</label>
+                <div className="input-group input-group-sm">
+                  <span className="input-group-text"><i className="bi bi-person"></i></span>
+                  <input
+                    type="text"
+                    className="form-control form-control-sm"
+                    name="first_name"
+                    value={formData.first_name}
+                    onChange={handleChange}
+                    required 
+                  />
+                </div>
+              </div>
+              <div className="col-md-5">
+                <label className="form-label small fw-medium text-muted">Last Name</label>
+                <div className="input-group input-group-sm">
+                  <span className="input-group-text"><i className="bi bi-person"></i></span>
+                  <input
+                    type="text"
+                    className="form-control form-control-sm"
+                    name="last_name"
+                    value={formData.last_name}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-4">
+                <label className="form-label small fw-medium text-muted">Email</label>
+                <div className="input-group input-group-sm">
+                  <span className="input-group-text"><i className="bi bi-envelope"></i></span>
+                  <input
+                    type="email"
+                    className="form-control form-control-sm"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-4 d-flex align-items-end">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="is_active"
+                    name="is_active"
+                    checked={!!formData.is_active}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label small" htmlFor="is_active">Is active ?</label>
+                </div>
+              </div>
+              <div className="col-md-4 d-flex align-items-end">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="enable_service_staff_pin"
+                    name="enable_service_staff_pin"
+                    checked={!!formData.enable_service_staff_pin}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label small" htmlFor="enable_service_staff_pin">Enable service staff pin</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card shadow-sm mt-3">
+          <div className="card-header bg-light py-2">
+            <h5 className="mb-0">Roles and Permissions</h5>
+          </div>
+          <div className="card-body">
+            <div className="row g-3">
+              <div className="col-12">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="allow_login"
+                    name="allow_login"
+                    checked={!!formData.allow_login}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label small" htmlFor="allow_login">Allow login</label>
+                </div>
+              </div>
+
+              <div className="col-md-4">
+                <label className="form-label small fw-medium text-muted">Username:</label>
+                <input
+                  type="text"
+                  className="form-control form-control-sm"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+                <div className="form-text">Leave blank to auto generate username</div>
+              </div>
+              <div className="col-md-5">
+                <div className="mb-2">
+                  <label className="form-label small fw-medium text-muted d-block mb-1">Password:*</label>
+                  <input
+                    type="password"
+                    className="form-control form-control-sm"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="col-md-5">
+                <div className="mb-2">
+                  <label className="form-label small fw-medium text-muted d-block mb-1">Confirm Password:*</label>
+                  <input
+                    type="password"
+                    className="form-control form-control-sm"
+                    name="confirm_password"
+                    value={formData.confirm_password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="col-md-2">
+                <div className="mb-2">
+                  <label className="form-label small fw-medium text-muted d-block mb-1">Role:*</label>
+                  <select
+                    className="form-select form-select-sm"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="user">User</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card shadow-sm mt-3">
+          <div className="card-header bg-light py-2">
+            <h5 className="mb-0">Sales</h5>
+          </div>
+          <div className="card-body">
+            <div className="row g-3">
+              <div className="col-md-4">
+                <label className="form-label small fw-medium text-muted">Sales Commission (%):</label>
+                <div className="input-group input-group-sm">
+                  <input
+                    type="text"
+                    className="form-control form-control-sm"
+                    name="cmmsn_percent"
+                    value={formData.cmmsn_percent}
+                    onChange={handleChange}
+                  />
+                  <span className="input-group-text">%</span>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <label className="form-label small fw-medium text-muted">Max discount (%):</label>
+                <div className="input-group input-group-sm">
+                  <input
+                    type="text"
+                    className="form-control form-control-sm"
+                    name="max_discount_percent"
+                    value={formData.max_discount_percent}
+                    onChange={handleChange}
+                  />
+                  <span className="input-group-text">%</span>
+                </div>
+              </div>
+              <div className="col-md-4 d-flex align-items-end">
+                <div className="form-check w-100">
+                  <div className="d-flex align-items-center">
+                    <input
+                      className="form-check-input me-2"
+                      type="checkbox"
+                      id="selected_contacts"
+                      name="selected_contacts"
+                      checked={!!formData.selected_contacts}
+                      onChange={handleChange}
+                    />
+                    <label className="form-check-label small m-0" htmlFor="selected_contacts">Allow Selected Contacts</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-end gap-2 mt-4 mb-4">
+          <button type="button" className="btn btn-light border" onClick={() => navigate(-1)}>
+            <X size={16} className="me-1" /> Cancel
+          </button>
+          <button type="submit" className="btn btn-primary">
+            <Save size={16} className="me-1" /> Save User
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddUser;

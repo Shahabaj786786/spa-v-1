@@ -1,0 +1,239 @@
+/* ============================================================
+   MAIN LAYOUT & SCROLLING
+   ============================================================ */
+.admin-form-wrapper {
+    background-color: #f4f7f6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Fixes double scrollbar issues */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Fixed Header: Bold Forest Green */
+.add-user-header {
+    background-color: #1a3a32 !important; /* Deep Premium Green */
+    padding: 14px 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #2e6a5b;
+    position: sticky;
+    top: var(--etpos-header-height);
+    z-index: 900;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.add-user-title {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 900 !important;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Scrollable Content Area */
+.form-content-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 24px;
+    scrollbar-width: thin;
+    scrollbar-color: #2e6a5b #f4f7f6;
+}
+
+/* Custom Styled Scrollbar */
+.form-content-container::-webkit-scrollbar { width: 10px; }
+.form-content-container::-webkit-scrollbar-thumb {
+    background: #2e6a5b;
+    border-radius: 10px;
+}
+
+/* ============================================================
+   ALIGNMENT FIX (The Strict Grid)
+   ============================================================ */
+.row.g-3, .input-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* Forces 4 columns */
+    gap: 20px !important;
+    align-items: end !important; /* Forces all inputs to sit on a straight line */
+}
+
+.input-group, .col-md-3 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0 !important;
+}
+
+/* Bold Labels */
+.form-label, label {
+    font-weight: 800 !important;
+    font-size: 12.5px;
+    color: #334155;
+    margin-bottom: 8px !important;
+    white-space: nowrap; /* Prevents text wrap from breaking height */
+}
+
+/* ============================================================
+   UNIFORM INPUT SIZE (FIXED)
+   ============================================================ */
+.form-control-sm,
+.form-select-sm,
+input,
+select,
+textarea {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    box-sizing: border-box !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    transition: all 0.2s ease;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #2e6a5b !important;
+    box-shadow: 0 0 0 4px rgba(46, 106, 91, 0.15) !important;
+    outline: none;
+}
+
+/* ============================================================
+   CARDS & COMPONENTS
+   ============================================================ */
+.form-card, .card {
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    border: 1px solid #e2e8f0 !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+    background-color: #f8fafc !important;
+    border-bottom: 2px solid #f1f5f9 !important;
+    padding: 15px 20px !important;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 900 !important;
+    color: #1e293b !important;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+/* Section Accent Bar */
+.card-header h5::before {
+    content: "";
+    width: 6px;
+    height: 20px;
+    background-color: #2e6a5b;
+    border-radius: 10px;
+    margin-right: 12px;
+}
+
+/* ============================================================
+   BUTTONS & STICKY FOOTER (BOLD FIXED COLORS)
+   ============================================================ */
+.add-user-footer .btn-primary {
+    background-color: #2e6a5b !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    border: 2px solid #2e6a5b !important;
+    padding: 12px 30px !important;
+    text-transform: uppercase;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.add-user-footer .btn-primary:hover,
+.add-user-footer .btn-primary:focus,
+.add-user-footer .btn-primary:active {
+    background-color: #2e6a5b !important;
+    color: #ffffff !important;
+    border-color: #2e6a5b !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15) !important;
+}
+
+.add-user-footer .btn-light.border {
+    font-weight: 900 !important;
+    color: #1a3a32 !important;
+    background-color: #ffffff !important;
+    border: 2px solid #1a3a32 !important;
+}
+
+.add-user-footer .btn-light.border:hover,
+.add-user-footer .btn-light.border:focus {
+    background-color: #ffffff !important;
+    color: #1a3a32 !important;
+    border-color: #1a3a32 !important;
+}
+
+/* The Fixed Sticky Footer */
+.add-user-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #ffffff !important;
+    border-top: 4px solid #2e6a5b !important; /* Strong accent line */
+    margin: 0 !important;
+    z-index: 1000;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+}
+
+/* ============================================================
+   RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 1200px) {
+    .row.g-3, .input-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 600px) {
+    .row.g-3, .input-grid { grid-template-columns: 1fr !important; }
+    .add-user-header { flex-direction: column; gap: 12px; height: auto; text-align: center; }
+}
+
+
+
+/* ============================================================
+   ROLES & PERMISSIONS – ALLOW LOGIN ROW FIX
+   ============================================================ */
+
+/* Container for allow login + fields */
+.roles-permissions .allow-login-row {
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+/* Checkbox area */
+.roles-permissions .allow-login-row .allow-login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+/* Inputs after allow login */
+.roles-permissions .allow-login-row .login-fields {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Ensure same height as other inputs */
+.roles-permissions .login-fields input {
+    height: 42px !important;
+}
